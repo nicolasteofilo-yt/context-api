@@ -1,11 +1,21 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+
+import { AuthContext } from "../../context/AuthContext";
+
 import "./styles.css";
 
 export default function Home() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
-  function handleSubmit() {}
+  const { setUser } = useContext(AuthContext);
+
+  function handleSubmit() {
+    setUser({
+      name,
+      email
+    })
+  }
 
   return (
     <div className="container">
